@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 
 from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
-from models import Company, Dev
+from models import Company, Dev, Freebie  # Import all models
 
 if __name__ == '__main__':
-    engine = create_engine('sqlite:///freebies.db')
-    import ipdb; ipdb.set_trace()
+    engine = create_engine('sqlite:///freebies.db')  # Create engine
+    Session = sessionmaker(bind=engine)  
+    session = Session()  # Create session
+
+    import ipdb; ipdb.set_trace()  # Start interactive debugging
